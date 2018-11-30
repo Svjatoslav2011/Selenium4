@@ -1,13 +1,9 @@
 package ru.stqa.pft.addressbook;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
 
+<<<<<<< HEAD
 import static org.testng.Assert.fail;
 
 
@@ -29,10 +25,14 @@ public class GroupCreationTest {
         driver.findElement(By.name("pass")).sendKeys("secret");
         driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
     }
+=======
+public class GroupCreationTest extends TestBase {
+>>>>>>> Lesson 23
 
     @Test
     public void testGroupCreation() throws Exception {
 
+<<<<<<< HEAD
         driver.findElement(By.linkText("groups")).click();
         driver.findElement(By.name("new")).click();
         driver.findElement(By.name("group_name")).click();
@@ -56,37 +56,14 @@ public class GroupCreationTest {
             fail(verificationErrorString);
         }
     }
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+=======
+        gotoGroupPage();
+        initGroupCreation();
+        fillGroupForm(new GroupData("Test1", "Test2", "Test3"));
+        submitGroupCreation();
+        returnToGroupPage();
     }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
+>>>>>>> Lesson 23
 
-    private String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
-        }
-    }
 }
